@@ -1,6 +1,8 @@
 # Ollama Setup Commands
 
-## Commands
+## Installation
+Download the latest version of Ollama from the [official website](https://ollama.com)
+
 
 ### Ollama CLI Cheat Sheet
 
@@ -43,9 +45,33 @@ A quick reference for commands inside Ollama models:
 
 **Tip:** Use `"""` to start a multi-line message.
 
+## Ollama API Cheat Sheet [Link](https://github.com/ollama/ollama/blob/main/docs/api.md)
+### Generate
+```bash
+POST /api/generate
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2:1b",
+  "prompt": "Why is the sky blue?",
+  "stream": false
+}'
+```
 
+### Chat Completion
+```bash
+POST /api/chat
+curl http://localhost:11434/api/chat -d '{
+  "model": "llama3.2:1b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "why is the sky blue?"
+    }
+  ],
+  "stream": false
+}'
+```
 
-## Create a New Model with Custom Settings
+## Create a New Model with Custom Settings [Link](https://github.com/ollama/ollama/blob/main/docs/modelfile.md)
     
 ```bash
 ollama create sheldon -f .\mymodelfile.txt
