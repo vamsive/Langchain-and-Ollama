@@ -19,8 +19,8 @@
     - SequentialChain
     - Parallel Chain
     - Router Chain
-    - Chain Runnables
-    - Custom Chain 
+    - Chain RunnablePassthrough
+    - Custom Chain with RunnableLambda
 
 
 - Output Parsing
