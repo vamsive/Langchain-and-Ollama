@@ -27,7 +27,6 @@
     - StrOutputParser
     - Structured Output Parser (Pydanitc or Json)
     - JsonOutputParser
-    - CSV Output Parser
     - Datatime Output Parser
 
 - Chat Message Memory [Link](https://python.langchain.com/api_reference/core/runnables/langchain_core.runnables.history.RunnableWithMessageHistory.html)
