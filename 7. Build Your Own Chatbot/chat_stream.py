@@ -13,17 +13,17 @@ from langchain_core.prompts import (
 from langchain_community.chat_message_histories import SQLChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-st.title("Your Own Private Chatbot")
-st.write("Chat with me! Catch me at https://youtube.com/kgptalkie")
-
 user_id = 1
 def get_session_history(session_id):
     return SQLChatMessageHistory(session_id, "sqlite:///memory.db")
 
+st.title("Your Own Private Chatbot")
+st.write("Chat with me! Catch me at https://youtube.com/kgptalkie")
+
 if st.button("Start New Conversation"):
     st.session_state.chat_history = []
     history = get_session_history(user_id)
-    st.write(history.get_messages())
+    # st.write(history.get_messages())
     history.clear()
 
 # Initialize chat history
@@ -62,7 +62,8 @@ def chat_with_llm(session_id, input):
 
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
+prompt = st.chat_input("What is up?")
+if prompt:
     # Add user message to chat history
     st.session_state.chat_history.append({"role": "user", "content": prompt})
     # Display user message in chat message container
@@ -71,7 +72,7 @@ if prompt := st.chat_input("What is up?"):
 
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
-        response = st.write_stream(chat_with_llm(1, prompt))
+        response = st.write_stream(chat_with_llm(user_id, prompt))
 
     # Add assistant response to chat history
     st.session_state.chat_history.append({"role": "assistant", "content": response})
