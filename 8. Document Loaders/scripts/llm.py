@@ -1,6 +1,8 @@
+### Question Answering using LLM
 from langchain_ollama import ChatOllama
 
-from langchain_core.prompts import (SystemMessagePromptTemplate, HumanMessagePromptTemplate,
+from langchain_core.prompts import (SystemMessagePromptTemplate, 
+                                    HumanMessagePromptTemplate,
                                     ChatPromptTemplate)
 
 
@@ -12,9 +14,8 @@ model = 'llama3.2:3b'
 
 llm = ChatOllama(base_url=base_url, model=model)
 
-system = SystemMessagePromptTemplate.from_template("""You are helpful AI assistant who answer user question based on the provided context.""")
 
-# Below context is the text data extracted from the website. You need to think carefully while selecting relevant text.
+system = SystemMessagePromptTemplate.from_template("""You are helpful AI assistant who answer user question based on the provided context.""")
 
 prompt = """Answer user question based on the provided context ONLY! If you do not know the answer, just say "I don't know".
             ### Context:
@@ -32,6 +33,5 @@ template = ChatPromptTemplate(messages)
 
 qna_chain = template | llm | StrOutputParser()
 
-def ask_llama(context, question):
-    response = qna_chain.invoke({'context': context, 'question': question})
-    return response
+def ask_llm(context, question):
+    return qna_chain.invoke({'context': context, 'question': question})
