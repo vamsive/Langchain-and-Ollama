@@ -41,11 +41,16 @@
     - Chat Application with History
     
 - Document Loaders
-    - Webpages
-        - ask to summarize BBC and Bloomberg news
     - PDFs
         - convert health supplements into text data
-    - Google Drive
+    - Webpages
+        - ask to summarize BBC and Bloomberg news
+    - Microsoft Word
+        - QnA on Word Document
+    - Microsoft PPT
+        - Keynote Generation
+    - Excel
+        - Summarize Financial Data
     - CSV Loader and Simple Text File Loader
     - WhatsApp
 
