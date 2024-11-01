@@ -1,0 +1,30 @@
+name: Get the name from the context
+headline: Headline from the context
+about: About the profile
+experience:
+  - company_name: Company Name where employee worked
+    duration: Total duration of the employment
+    designations:
+      - designation: Designation of the employee
+        duration: Duration of the employee at the designation
+        location: Location of the company
+        projects: Projects done by the employee
+education:
+  - school_college: School/College Name
+    degree: Degree obtained or pursuing
+    duration: Duration of the course
+    project: Project done by the student
+licenses_and_certifications:
+  - title: Title of the certification
+    institute: Institute from where certification is done
+    issued_on: Date of issuance of the certification
+projects:
+  - project_title: Title of the project
+    duration: Duration of the project
+    details: Details of the project
+courses:
+  - course_title: Title of the course
+    associated_with: Institute associated with the course
+honors_awards:
+  - Title of the honor/award
+  - Title of the honor/award
