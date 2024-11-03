@@ -1,4 +1,3 @@
-### Question Answering using LLM
 from langchain_ollama import ChatOllama
 
 from langchain_core.prompts import (SystemMessagePromptTemplate, 
@@ -68,7 +67,6 @@ prompt = """
         """
 
 prompt = HumanMessagePromptTemplate.from_template(prompt)
-
 
 def ask_llm(context, question):
     messages = [system, prompt]
