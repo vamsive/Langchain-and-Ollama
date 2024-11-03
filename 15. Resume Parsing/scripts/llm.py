@@ -68,11 +68,29 @@ prompt = """
 
 prompt = HumanMessagePromptTemplate.from_template(prompt)
 
-messages = [system, prompt]
-template = ChatPromptTemplate(messages)
-
-# qna_chain = template | llm | StrOutputParser()
-qna_chain = template | llm | JsonOutputParser()
 
 def ask_llm(context, question):
+    messages = [system, prompt]
+    template = ChatPromptTemplate(messages)
+
+    qna_chain = template | llm | StrOutputParser()
     return qna_chain.invoke({'context': context, 'question': question})
+
+
+def validate_json(data):
+    json_prompt = """
+            Please validate and correct the following JSON data:
+
+            **Extracted Information:**
+            {data}
+
+            Provide only the corrected JSON, with no preamble or explanation.
+
+            **Corrected JSON:**"""
+
+    json_prompt = HumanMessagePromptTemplate.from_template(json_prompt)
+    json_messages = [system, json_prompt]
+    json_template = ChatPromptTemplate(json_messages)
+
+    json_chain = json_template | llm | JsonOutputParser()
+    return json_chain.invoke({'data': data})
